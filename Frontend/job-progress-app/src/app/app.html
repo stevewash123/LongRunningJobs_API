@@ -34,7 +34,7 @@
         <div class="progress-bar"
              [style.width.%]="job.progress"
              [class.completed]="job.status === 'Completed'"
-             [style.--job-color]="job.status === 'Completed' ? getJobColor(job.name) : ''"></div>
+             [style.--job-color]="getJobColor(job.name)"></div>
       </div>
       <span class="job-status-text" [style.color]="job.status === 'Completed' ? getJobColor(job.name) : ''">{{ job.progress }}% {{ job.status }}</span>
     </div>
@@ -212,9 +212,9 @@
             SignalR is a real-time web communication library that enables server-to-client communication. It allows the server to push content to connected clients instantly as it becomes available, rather than having the server wait for a client to request new data.
           </p>
 
-          <h3>Common Use Cases</h3>
+          <h3>Background Process Reporting</h3>
           <p>
-            SignalR is perfect for chat applications, live dashboards, real-time notifications, collaborative editing tools, gaming applications, live sports scores, stock tickers, and any scenario where you need instant updates without page refreshes or constant polling.
+            SignalR excels at background process reporting - bridging HTTP updates from long-running SaaS processes to real-time UI notifications. This end-to-end design receives HTTP callbacks from external services (payment processors, document generators, AI pipelines) and relays them instantly to connected clients. The demo showcases live progress tracking, job status changes, and completion notifications without polling or page refreshes.
           </p>
         </div>
 
