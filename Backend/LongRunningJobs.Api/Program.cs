@@ -6,6 +6,10 @@ using LongRunningJobs.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure port for Render.com deployment
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // Add services to the container
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -16,7 +20,10 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins(
+                  "http://localhost:4200",                           // Local development
+                  "https://longrunningjobs-ui.onrender.com"          // Production frontend
+              )
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();

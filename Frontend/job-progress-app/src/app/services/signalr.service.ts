@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { JobProgressUpdate } from '../models/job.models';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class SignalRService {
 
   private createConnection(): void {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl('http://localhost:5042/jobProgressHub')
+      .withUrl(`${environment.apiUrl}/jobProgressHub`)
       .configureLogging(LogLevel.Information)
       .build();
 

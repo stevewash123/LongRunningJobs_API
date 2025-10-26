@@ -9,7 +9,7 @@ This directory contains Claude-specific configuration files for the LongRunningJ
 
 ## Generated Configuration
 - **Generated from**: `/mnt/c/Projects/.claude/settings.global.json`
-- **Generated at**: 2025-10-26T08:41:32-04:00
+- **Generated at**: 2025-10-26T16:34:21-04:00
 - **Project name**: LongRunningJobsDemo
 
 ## Usage
