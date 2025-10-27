@@ -1,13 +1,6 @@
 <div class="container">
   <h1>Long Running Jobs Demo - Hangfire + SignalR</h1>
 
-  <!-- Centered Help Button -->
-  <div class="help-button-container">
-    <button class="help-btn" (click)="showHelp = true">
-      ❓ About Technologies
-    </button>
-  </div>
-
   <!-- Connection Status -->
   <div class="connection-status" [class.connected]="isConnected" [class.disconnected]="!isConnected">
     <span class="status-icon">{{ isConnected ? '🟢' : '🔴' }}</span>
@@ -45,6 +38,13 @@
     <!-- Left Panel: Job Submission -->
     <div class="job-panel">
       <h2>🚀 Submit Background Jobs</h2>
+
+      <!-- Help Button -->
+      <div class="help-button-container">
+        <button class="help-btn" (click)="showHelp = true">
+          ❓ About Technologies
+        </button>
+      </div>
 
       <div class="form-group">
         <label for="jobCount">Number of Jobs:</label>
