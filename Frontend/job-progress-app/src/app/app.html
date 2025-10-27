@@ -39,11 +39,14 @@
     <div class="job-panel">
       <h2>🚀 Submit Background Jobs</h2>
 
-      <!-- Help Button -->
-      <div class="help-button-container">
+      <!-- Help and Dashboard Buttons -->
+      <div class="button-group">
         <button class="help-btn" (click)="showHelp = true">
           ❓ About Technologies
         </button>
+        <a href="http://localhost:5042/hangfire" target="_blank" class="dashboard-btn">
+          📊 Hangfire Dashboard
+        </a>
       </div>
 
       <div class="form-group">
@@ -170,23 +173,6 @@
     </div>
   </div>
 
-  <!-- Hangfire Dashboard Link -->
-  <div class="dashboard-link">
-    <a href="http://localhost:5042/hangfire" target="_blank" class="dashboard-btn">
-      📊 View Hangfire Dashboard
-    </a>
-    <span class="dashboard-note">Monitor jobs, queues, and server health</span>
-  </div>
-
-  <div class="note">
-    <strong>📝 Demo Features:</strong>
-    This application demonstrates enterprise background job processing patterns:<br>
-    • Jobs are queued with Hangfire and run independently in the background<br>
-    • SignalR provides real-time progress updates without polling<br>
-    • The product table remains fully interactive while jobs execute (non-blocking UI)<br>
-    • Job progress is visually tracked with animated progress bars<br>
-    • Multiple concurrent jobs show the scalability of the Hangfire framework
-  </div>
 
   <!-- Help Dialog -->
   <div class="dialog-overlay" *ngIf="showHelp" (click)="showHelp = false">
@@ -197,6 +183,9 @@
       </div>
 
       <div class="dialog-tabs">
+        <button class="tab-btn" [class.active]="activeTab === 'demo'" (click)="activeTab = 'demo'">
+          Demo Features
+        </button>
         <button class="tab-btn" [class.active]="activeTab === 'signalr'" (click)="activeTab = 'signalr'">
           SignalR
         </button>
@@ -206,6 +195,24 @@
       </div>
 
       <div class="dialog-body">
+        <div *ngIf="activeTab === 'demo'" class="tab-content">
+          <h3>📝 Enterprise Background Job Processing</h3>
+          <p>
+            This application demonstrates enterprise background job processing patterns using industry-standard technologies. The demo showcases real-world scenarios for handling long-running operations without blocking user interfaces.
+          </p>
+
+          <h3>Key Features Demonstrated</h3>
+          <p>
+            • Jobs are queued with Hangfire and run independently in the background<br>
+            • SignalR provides real-time progress updates without polling<br>
+            • The product table remains fully interactive while jobs execute (non-blocking UI)<br>
+            • Job progress is visually tracked with animated progress bars<br>
+            • Multiple concurrent jobs show the scalability of the Hangfire framework<br>
+            • Color-coded job identification with candy cane progress animations<br>
+            • Configurable job scheduling and duration settings
+          </p>
+        </div>
+
         <div *ngIf="activeTab === 'signalr'" class="tab-content">
           <h3>What is SignalR?</h3>
           <p>

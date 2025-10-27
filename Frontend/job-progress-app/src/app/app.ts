@@ -27,7 +27,7 @@ export class App implements OnInit, OnDestroy {
 
   // Help dialog
   showHelp = false;
-  activeTab = 'signalr';
+  activeTab = 'demo';
 
   // Product data
   displayedProducts: Product[] = [];

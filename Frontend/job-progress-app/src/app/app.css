@@ -74,6 +74,21 @@ h1 {
   background-color: #138496;
 }
 
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button-group .help-btn,
+.button-group .dashboard-btn {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 /* Job Marquee */
 .job-marquee {
   background-color: #343a40;
@@ -480,10 +495,11 @@ tbody tr:hover {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  max-width: 600px;
-  width: 90%;
-  max-height: 80vh;
+  max-width: 800px;
+  width: 95%;
+  max-height: 85vh;
   overflow: hidden;
+  font-size: 16px;
 }
 
 .dialog-header {
@@ -546,26 +562,27 @@ tbody tr:hover {
 }
 
 .dialog-body {
-  padding: 25px;
-  max-height: 400px;
+  padding: 35px;
+  max-height: 500px;
   overflow-y: auto;
 }
 
 .tab-content h3 {
   color: #333;
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 12px;
   margin-top: 0;
 }
 
 .tab-content h3:not(:first-child) {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .tab-content p {
   color: #555;
-  line-height: 1.6;
-  margin-bottom: 15px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  font-size: 16px;
 }
 
 /* Responsive Design */
@@ -602,11 +619,17 @@ tbody tr:hover {
   }
 
   .dialog-content {
-    width: 95%;
-    margin: 10px;
+    width: 98%;
+    margin: 5px;
+    font-size: 15px;
   }
 
   .dialog-body {
-    padding: 20px;
+    padding: 25px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
   }
 }
