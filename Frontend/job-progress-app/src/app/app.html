@@ -1,6 +1,16 @@
 <div class="container">
   <h1>Long Running Jobs Demo - Hangfire + SignalR</h1>
 
+  <!-- Help and Dashboard Buttons -->
+  <div class="button-group">
+    <button class="help-btn" (click)="showHelp = true">
+      ❓ About Technologies
+    </button>
+    <a href="http://localhost:5042/hangfire" target="_blank" class="dashboard-btn">
+      📊 Hangfire Dashboard
+    </a>
+  </div>
+
   <!-- Connection Status -->
   <div class="connection-status" [class.connected]="isConnected" [class.disconnected]="!isConnected">
     <span class="status-icon">{{ isConnected ? '🟢' : '🔴' }}</span>
@@ -39,15 +49,12 @@
     <div class="job-panel">
       <h2>🚀 Submit Background Jobs</h2>
 
-      <!-- Help and Dashboard Buttons -->
-      <div class="button-group">
-        <button class="help-btn" (click)="showHelp = true">
-          ❓ About Technologies
-        </button>
-        <a href="http://localhost:5042/hangfire" target="_blank" class="dashboard-btn">
-          📊 Hangfire Dashboard
-        </a>
-      </div>
+      <button
+        class="submit-btn"
+        [disabled]="isSubmitting || activeJobs.length > 0"
+        (click)="submitJobs()">
+        {{ isSubmitting ? '⏳ Submitting...' : '▶ Start Jobs' }}
+      </button>
 
       <div class="form-group">
         <label for="jobCount">Number of Jobs:</label>
@@ -88,13 +95,6 @@
           </div>
         </div>
       </div>
-
-      <button
-        class="submit-btn"
-        [disabled]="isSubmitting || activeJobs.length > 0"
-        (click)="submitJobs()">
-        {{ isSubmitting ? '⏳ Submitting...' : '▶ Start Jobs' }}
-      </button>
 
       <button
         class="clear-btn"
